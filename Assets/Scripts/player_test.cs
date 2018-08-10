@@ -13,6 +13,10 @@ public class player_test : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        transform.position += transform.forward * movementSpeed * Time.deltaTime;
+
+        /*
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
@@ -23,5 +27,6 @@ public class player_test : MonoBehaviour {
         transform.position += direction * movementSpeed * Time.deltaTime;
 
         transform.rotation = Quaternion.RotateTowards(transform.rotation, Quaternion.LookRotation(finalDirection), Mathf.Deg2Rad * 50f);
+        */
     }
 }

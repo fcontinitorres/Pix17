@@ -33,6 +33,7 @@ public class PathFollower : MonoBehaviour
 
     void OnDrawGizmos()
     {
+        /*
         if(path.Length > 0)
         {
             for(int i=0; i < path.Length; i++)
@@ -43,5 +44,6 @@ public class PathFollower : MonoBehaviour
                 }
             }
         }
+        */
     }
 }
