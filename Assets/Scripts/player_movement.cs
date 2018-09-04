@@ -13,6 +13,13 @@ public class player_movement : MonoBehaviour
     public float max_angle_roll = 25f;
     public float max_angle_yaw = 15f;
 
+    public float clampHeightMax = 10f;
+    public float clampHeightMin = -10f;
+
+    public float clampWidthMax = 10f;
+    public float clampWidthMin = -10f;
+
+
     private float input_Vertical;
     private float input_Horizontal;
 
@@ -38,6 +45,11 @@ public class player_movement : MonoBehaviour
         maneuverControls();
     }
 
+    private void LateUpdate()
+    {
+        transform.position = new Vector3(Mathf.Clamp(transform.position.x, clampWidthMin, clampWidthMax), Mathf.Clamp(transform.position.y, clampHeightMin, clampHeightMax), transform.position.z);
+    }
+
     private void MoveVertAxis()
     {
         Vector3 direction = new Vector3(0, input_Vertical, 0);
@@ -48,8 +60,11 @@ public class player_movement : MonoBehaviour
     private void MoveHorAxis()
     {
         Vector3 direction = new Vector3(input_Horizontal, 0, 0);
-
+        //Vector3 direction = new Vector3(input_Horizontal, 0, 0);
+        
         transform.position += direction * mov_speed * Time.fixedDeltaTime;
+        //transform.position += direction * mov_speed * Time.fixedDeltaTime;
+
     }
 
 
