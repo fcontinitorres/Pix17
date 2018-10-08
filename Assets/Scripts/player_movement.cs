@@ -7,7 +7,8 @@ public class player_movement : MonoBehaviour
     //[SerializeField]
     //float angle;
 
-    public int mov_speed = 25;
+    public float forward_speed = 20;
+    public float mov_speed = 25;
     public float maneuver_speed = 5.0f;
     public float max_angle_pitch = 25f;
     public float max_angle_roll = 25f;
@@ -43,6 +44,8 @@ public class player_movement : MonoBehaviour
         MoveHorAxis();
 
         maneuverControls();
+
+        transform.position += transform.forward * forward_speed * Time.deltaTime;
     }
 
     private void LateUpdate()
